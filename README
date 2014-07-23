@@ -1,0 +1,4 @@
+Initial empty repository - ok
+command for running the server
+cd nodeboilerplate
+forever start app.js > output.log &

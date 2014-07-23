@@ -1,0 +1,581 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>The HTML5 blah</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" herf="/css/lib/bootstrap3.2.0.min.css"
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <h1><%=title%></h1>
+        <hr/>
+        <div class="page">
+
+        </div>
+    </div>
+     <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script> -->
+
+    <!--  -->
+    <!--  -->
+    <script type="text/template" id="click-list-template">
+        <table class="table striped">
+            <thead>
+                <th>
+                    <td>day</td>
+                    <td>hour</td>
+                    <td>minute</td>
+                    <td>count</td>
+                </th>
+            </thead>
+            <tbody>
+                <% _.each(clicks, function(click){%>
+                    <tr>
+                        <td>
+                            <%=click.get( 'day')%>
+                        </td>
+                        <td>
+                            <%=click.get( 'hour')%>
+                        </td>
+                        <td>
+                            <%=click.get( 'minute')%>
+                        </td>
+                        <td>
+                            <%=click.get( 'count')%>
+                        </td>
+                    </tr>
+
+                <%});%> 
+
+            </tbody>
+        </table>
+    </script> 
+    <script>
+    
+    clicks = [{
+        "day": 19,
+        "hour": 0,
+        "minute": 0,
+        "count": 369
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 1,
+        "count": 483
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 2,
+        "count": 487
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 3,
+        "count": 454
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 4,
+        "count": 416
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 5,
+        "count": 457
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 6,
+        "count": 465
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 7,
+        "count": 444
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 8,
+        "count": 444
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 9,
+        "count": 452
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 10,
+        "count": 469
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 11,
+        "count": 480
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 12,
+        "count": 439
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 13,
+        "count": 428
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 14,
+        "count": 410
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 15,
+        "count": 455
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 16,
+        "count": 411
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 17,
+        "count": 443
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 18,
+        "count": 443
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 19,
+        "count": 462
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 20,
+        "count": 439
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 21,
+        "count": 478
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 22,
+        "count": 457
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 23,
+        "count": 493
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 24,
+        "count": 480
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 25,
+        "count": 452
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 26,
+        "count": 480
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 27,
+        "count": 491
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 28,
+        "count": 433
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 29,
+        "count": 446
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 30,
+        "count": 514
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 31,
+        "count": 456
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 32,
+        "count": 476
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 33,
+        "count": 475
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 34,
+        "count": 428
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 35,
+        "count": 416
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 36,
+        "count": 442
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 37,
+        "count": 442
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 38,
+        "count": 412
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 39,
+        "count": 444
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 40,
+        "count": 466
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 41,
+        "count": 487
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 42,
+        "count": 505
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 43,
+        "count": 472
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 44,
+        "count": 406
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 45,
+        "count": 486
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 46,
+        "count": 446
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 47,
+        "count": 447
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 48,
+        "count": 444
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 49,
+        "count": 437
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 50,
+        "count": 455
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 51,
+        "count": 417
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 52,
+        "count": 468
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 53,
+        "count": 433
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 54,
+        "count": 431
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 55,
+        "count": 508
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 56,
+        "count": 416
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 57,
+        "count": 457
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 58,
+        "count": 423
+    }, {
+        "day": 19,
+        "hour": 0,
+        "minute": 59,
+        "count": 460
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 0,
+        "count": 457
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 1,
+        "count": 450
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 2,
+        "count": 461
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 3,
+        "count": 432
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 4,
+        "count": 443
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 5,
+        "count": 452
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 6,
+        "count": 441
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 7,
+        "count": 426
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 8,
+        "count": 412
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 9,
+        "count": 431
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 10,
+        "count": 470
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 11,
+        "count": 447
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 12,
+        "count": 445
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 13,
+        "count": 488
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 14,
+        "count": 454
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 15,
+        "count": 471
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 16,
+        "count": 426
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 17,
+        "count": 455
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 18,
+        "count": 449
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 19,
+        "count": 436
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 20,
+        "count": 428
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 21,
+        "count": 464
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 22,
+        "count": 402
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 23,
+        "count": 444
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 24,
+        "count": 439
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 25,
+        "count": 409
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 26,
+        "count": 450
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 27,
+        "count": 491
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 28,
+        "count": 484
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 29,
+        "count": 506
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 30,
+        "count": 464
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 31,
+        "count": 430
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 32,
+        "count": 437
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 33,
+        "count": 463
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 34,
+        "count": 497
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 35,
+        "count": 431
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 36,
+        "count": 448
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 37,
+        "count": 467
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 38,
+        "count": 469
+    }, {
+        "day": 19,
+        "hour": 1,
+        "minute": 39,
+        "count": 439
+    }]
+    </script>
+    <script src ="/js/lib/jquery2.1.1-min.js"></script>
+    <script src="/js/lib/underscore1.6.0-min.js"></script>
+    <script src="/js/lib/backbone1.1.2-min.js"></script>
+    
+    <script src="/js/lib/bootstrap3.2.0-min.js"></script>
+    <script src="/js/index.js"></script>
+    
+    
+
+</body>
+
+</html>
