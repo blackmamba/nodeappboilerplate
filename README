@@ -1,4 +1,6 @@
 Initial empty repository - ok
 command for running the server
+
 cd nodeboilerplate
+npm install -g forever
 forever start app.js > output.log &
