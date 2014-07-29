@@ -1,3 +1,7 @@
+@import url("lib/bootstrap.css");
+@import url("lib/bootstrap-datetimepicker.css");
+@import url("Dashboard.css");
+@import url("clicksWowView.css");
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -6,3 +10,27 @@ body {
 a {
   color: #00B7FF;
 }
+
+//clickswowview css
+ul.leg {
+	list-style-type: none;
+
+}
+
+li.legend {
+	display: inline;
+	width: auto;
+	margin-left: .8em;
+}
+
+li.legend span {
+	display: inline-block;
+}
+
+li.legend span:first-child {
+	/*display: inline-block;*/
+	width: 20px;
+	height: 20px;
+	margin-right: .6em;
+}
+

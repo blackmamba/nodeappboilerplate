@@ -9,7 +9,7 @@ define([
     // Above we have passed in jQuery, Underscore and Backbone
     // They will not be accessible in the global scope
     var margin, x, y, width, height, format, parseDate, color, xAxis, yAxis,
-        line, svg, attributes, attr;
+        line, svg, attributes, attr, leg;
     var Graph = Backbone.View.extend({
         // initialize: function() {
         //     this.render();
@@ -75,18 +75,20 @@ define([
 
         },
         switchContext: function(context) {
-            if (!context) {
-                throw 'context required for setting a switching context';
-            }    
+            if (!context) throw 'context required for setting a switching context';
             this.context = context;
         },
         getContext: function() {
             return this.context
         },
         render: function(clicks) {
+
+
+
             //data related stuff starts here
             var that = this;
             svg.selectAll("*").remove();
+            d3.select(".graph ul").remove();
             var models = clicks.models;
             models.forEach(function(d) {
                 //  // any pre processing that is required on data needs to be done here
@@ -96,8 +98,8 @@ define([
 
 
             color.domain(d3.keys(models[0].attributes).filter(function(key) {
-                return key !== "created"  
-                // key.indexOf(that.getContext()) > 0;
+                return key !== "created"
+                    // key.indexOf(that.getContext()) > 0;
             }));
             attributes = color.domain().map(function(name) {
                 return {
@@ -157,6 +159,22 @@ define([
                     return color(d.name);
                 });
 
+            // att.on("mouseover", function(d) {
+            //     d3.select(this).transition().duration(300).style("opacity", 1);
+            //     div.transition().duration(300)
+            //         .style("opacity", 1)
+            //     div.text(pairNameWithId[d.id] + " : " + pairRateWithId[d.id])
+            //         .style("left", (d3.event.pageX) + "px")
+            //         .style("top", (d3.event.pageY - 30) + "px");
+            // }).on("mouseout", function() {
+            //     d3.select(this)
+            //         .transition().duration(300)
+            //         .style("opacity", 0.8);
+            //     div.transition().duration(300)
+            //         .style("opacity", 0);
+            // })
+
+            var texts = [];
             attr.append("text")
                 .datum(function(d) {
                     return {
@@ -170,19 +188,67 @@ define([
                 .attr("x", 3)
                 .attr("dy", ".35em")
                 .text(function(d) {
+                    texts.push(d.name);
                     return d.name;
+
                 });
+            //creating legend
 
 
+
+            // var sv = d3.select("svg"),
+            var legend;
+            leg = d3.select(".graph").append("ul").attr("class", "leg")
+                .attr("transform", "translate(" + (width - 70) + "," + (margin.top) + ")")
+                .attr("list-style-type", "none");
+            legend = leg
+                .selectAll("li.legend")
+                .data(texts)
+                .enter().append("li")
+                .attr("class", "legend");
+
+
+            // legend = sv.append("g")
+            //     .attr("class", "leg")
+            //     .attr("transform", "translate(" + (width - 70) + "," + (margin.top) + ")")
+            // // .append("rect")
+            // // .attr("width", 150)
+            // // .attr("height", 150)
+            // // .style("fill", "#fff")
+            // // .attr("class", "leg-rec")
+            // .selectAll("g.legend")
+            //     .data(texts)
+            //     .enter().append("g")
+            //     .attr("class", "legend");
+
+            // var ls_w = 20,
+            //     ls_h = 20;
+
+            legend.append("span")
+            // .attr("x", 20)
+            // .attr("y", function(d, i) {
+            //     return height - (i * ls_h) - 2 * ls_h;
+            // })
+            // .style("display", "inline-block")
+            // .attr("width", ls_w)
+            // .attr("height", ls_h)
+            .style("background-color", function(d, i) {
+                return color(d);
+            });
+
+            // .style("opacity", 0.8);
+
+            legend.append("span")
+            // .attr("x", 50)
+            // .attr("y", function(d, i) {
+            //     return height - (i * ls_h) - ls_h - 4;
+            // })
+            .text(function(d, i) {
+                return d;
+                //legend_labels[i];
+            });
         }
 
     });
-
-
-
-
     return Graph;
-    // What we return here will be used by other modules
 });
-
-//graph related code
