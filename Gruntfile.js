@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+gmodule.exports = function(grunt) {
 
     // Project configuration.
     grunt.initConfig({
@@ -52,27 +52,7 @@ module.exports = function(grunt) {
                             // ]
                         }
 
-                        //Now set up a build layer for each page, but exclude
-                        //the common one. "exclude" will exclude
-                        //the nested, built dependencies from "common". Any
-                        //"exclude" that includes built modules should be
-                        //listed before the build layer that wants to exclude it.
-                        //"include" the appropriate "app/main*" module since by default
-                        //it will not get added to the build since it is loaded by a nested
-                        //require in the page*.js files.
-                        // {
-                        //     //module names are relative to baseUrl/paths config
-                        //     name: 'js/views/ClicksTableView',
-                        //     include: ['jquery'],
-                        //     exclude: ['bootstrap']
-                        // },
-
-                        // {
-                        //     //module names are relative to baseUrl
-                        //     name: '../page2',
-                        //     include: ['app/main2'],
-                        //     exclude: ['../common']
-                        // }
+                      
 
                     ],
                     optimizeCss: "standard",
